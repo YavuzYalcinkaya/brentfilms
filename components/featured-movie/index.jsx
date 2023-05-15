@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaPlus } from "react-icons/fa";
 
-const FeaturedMovie = ({ movie = {}, isCompact = true }) => {
+const FeaturedMovie = ({ movie = {} }) => {
   const { poster_path, title, overview } = movie;
   return (
     <div className="flex flex-col gap-6 mt-14 mb-14">
@@ -16,18 +16,18 @@ const FeaturedMovie = ({ movie = {}, isCompact = true }) => {
         >
           Play
         </Link>
-        <button className="flex items-center justify-center border-slate-100 rounded-full  text-white">
+        <button className="flex items-center justify-center  bg-slate-950 rounded-full w-20 h-15">
           <FaPlus />
         </button>
       </div>
       <div className="h-auto -z-20 max-h-full object-cover">
-        <div className="absolute -z-10"></div>
+        {/* <div className="absolute -z-10 "></div>
         <Image
           unoptimized
           src={`https://image.tmdb.org/t/p/original${poster_path}`}
           alt={title}
           fill
-        />
+        /> */}
       </div>
     </div>
   );
