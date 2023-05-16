@@ -4,7 +4,7 @@ import Link from "next/link";
 const Categories = ({ categories }) => {
   return (
     <div className="flex gap-6 h-16">
-      {categories.map((category, index) => (
+      {categories?.map((category, index) => (
         <Link
           key={index}
           href={`/${category.id}`}

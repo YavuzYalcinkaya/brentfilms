@@ -21,13 +21,13 @@ const FeaturedMovie = ({ movie = {} }) => {
         </button>
       </div>
       <div className="h-auto -z-20 max-h-full object-cover">
-        {/* <div className="absolute -z-10 "></div>
+        <div className="absolute -z-10 "></div>
         <Image
           unoptimized
           src={`https://image.tmdb.org/t/p/original${poster_path}`}
           alt={title}
           fill
-        /> */}
+        />
       </div>
     </div>
   );
