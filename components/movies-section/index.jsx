@@ -5,15 +5,18 @@ import Image from "next/image";
 const MoviesSection = ({ title, movies }) => {
   return (
     <div className="mt-9">
-      <h3 className="mb-3 uppercase text-xl tracking-[-1px]">{title}</h3>
-      <div className="grid grid-cols-3 gap-6">
+      <h3 className="mb-3 uppercase text-2xl font-extrabold tracking-[-1px]">
+        {title}
+      </h3>
+      <div className="grid grid-cols-6  gap-6">
         {movies?.map((movie) => (
           <div
-            className=" text-white overflow-hidden rounded-sm w-60 h-60 relative shadow-md transition duration-150 ease-in-out"
+            className="relative w-full h-80 overflow-hidden border border-solid rounded-lg shadow-lg transition-transform duration-300 ease-in delay-0"
             key={movie.id}
           >
             <Link href={`/movie/${movie.id}`}>
               <Image
+                className="absolute   bg-transparent inset-0"
                 fill
                 unoptimized
                 alt={movie.title}

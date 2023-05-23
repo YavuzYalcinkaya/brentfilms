@@ -8,7 +8,7 @@ const Categories = ({ categories }) => {
         <Link
           key={index}
           href={`/${category.id}`}
-          className="flex items-center justify-center bg-slate-950 hover:bg-slate-900 border-1 border-[#333] shadow-lg w-full h-full rounded-sm font-bold"
+          className="flex items-center justify-center bg-[rgba(0,0,0,.75)] border border-[#333] shadow-lg w-full h-full rounded-sm font-bold"
         >
           <h4>{category.name}</h4>
         </Link>

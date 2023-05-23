@@ -1,10 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import { FaPlayCircle } from "react-icons/fa";
+import "./style.css";
 
 const Header = () => {
   return (
-    <header className="bg-gradient-to-r from-[rgba(0,0,0,0.8)] to-[rgba(0,0,0,0)] container fluid">
+    <header className="header h-full w-full container fluid">
       <div className="flex items-center justify-between">
         <Link
           href="/"
@@ -12,7 +13,7 @@ const Header = () => {
         >
           <FaPlayCircle /> BRENTFILMS
         </Link>
-        <nav className="flex gap-12 text-white font-bold">
+        <nav className="flex gap-12  text-white font-bold uppercase">
           <Link href="/">Movies</Link>
           <Link href="/">Series</Link>
           <Link href="/">Kids</Link>
