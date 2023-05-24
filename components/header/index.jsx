@@ -1,25 +1,59 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
-import { FaPlayCircle } from "react-icons/fa";
-import "./style.css";
+import { FaPlayCircle, FaTimes, FaBars } from "react-icons/fa";
+
+import { Transition } from "@headlessui/react";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <header className="header h-full w-full container fluid">
-      <div className="flex items-center justify-between">
+    <nav className="bg-red-500">
+      <div className="flex h-20 items-center justify-around ">
         <Link
           href="/"
           className="flex items-center gap-3 text-2xl font-bold text-slate-100"
         >
           <FaPlayCircle /> BRENTFILMS
         </Link>
-        <nav className="flex gap-12  text-white font-bold uppercase">
-          <Link href="/">Movies</Link>
-          <Link href="/">Series</Link>
-          <Link href="/">Kids</Link>
-        </nav>
+
+        <div className="hidden md:block ">
+          <ul className="flex gap-4 text-white text-xl font-bold uppercase">
+            <Link href="/">Movies</Link>
+
+            <Link href="/">Series</Link>
+
+            <Link href="/">Kids</Link>
+          </ul>
+        </div>
+        <div className="md:hidden flex items-center">
+          <button onClick={() => setIsOpen(!isOpen)} type="button" className="">
+            {isOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
       </div>
-    </header>
+      <Transition
+        show={isOpen}
+        enter="transition ease-out duration-100 transform"
+        enterFrom="opacity-0 scale-95"
+        enterTo="opacity-100 scale-100"
+        leave="transition ease-in duration-75 transform"
+        leaveFrom="opacity-100 scale-100"
+        leaveTo="opacity-0 scale-95"
+      >
+        <div className=" flex md:hidden relative">
+          <ul className="flex flex-col right-0 absolute gap-2 text-white text-xl font-bold uppercase space-y-1">
+            <Link href="/">Movies</Link>
+
+            <Link href="/">Series</Link>
+
+            <Link href="/">Kids</Link>
+          </ul>
+        </div>
+      </Transition>
+    </nav>
   );
 };
 
