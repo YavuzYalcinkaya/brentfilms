@@ -10,7 +10,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-red-500">
+    <nav className="">
       <div className="flex h-20 items-center justify-around ">
         <Link
           href="/"
@@ -21,11 +21,17 @@ const Header = () => {
 
         <div className="hidden md:block ">
           <ul className="flex gap-4 text-white text-xl font-bold uppercase">
-            <Link href="/">Movies</Link>
+            <Link href="/" className="hover:opacity-50">
+              Movies
+            </Link>
 
-            <Link href="/">Series</Link>
+            <Link href="/" className="hover:opacity-50">
+              Series
+            </Link>
 
-            <Link href="/">Kids</Link>
+            <Link href="/" className="hover:opacity-50">
+              Kids
+            </Link>
           </ul>
         </div>
         <div className="md:hidden flex items-center">
@@ -43,7 +49,7 @@ const Header = () => {
         leaveFrom="opacity-100 scale-100"
         leaveTo="opacity-0 scale-95"
       >
-        <div className=" flex md:hidden relative">
+        <div className=" h-50 bg-white flex md:hidden relative">
           <ul className="flex flex-col right-0 absolute gap-2 text-white text-xl font-bold uppercase space-y-1">
             <Link href="/">Movies</Link>
 

@@ -10,7 +10,7 @@ const Categories = ({ categories }) => {
           href={`/${category.id}`}
           className=" h-16  flex items-center w-[80%] justify-center bg-[rgba(0,0,0,.75)] border border-[#333] shadow-lg rounded-sm font-bold"
         >
-          <h4>{category.name}</h4>
+          <h4 className="hover:opacity-50">{category.name}</h4>
         </Link>
       ))}
     </div>

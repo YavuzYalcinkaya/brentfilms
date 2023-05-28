@@ -10,6 +10,8 @@ html,
 body {
   height: 100%;
   width: 100%;
+  overscroll-behavior-y: none;
+  scroll-behavior: smooth;
 }
 body {
   color: #fff;

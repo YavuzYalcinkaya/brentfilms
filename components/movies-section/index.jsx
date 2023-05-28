@@ -8,10 +8,10 @@ const MoviesSection = ({ title, movies }) => {
       <h3 className="mb-3 uppercase text-2xl font-extrabold tracking-[-1px]">
         {title}
       </h3>
-      <div className="grid grid-cols-6  gap-6">
+      <div className="grid lg:grid-cols-6  gap-6">
         {movies?.map((movie) => (
           <div
-            className="relative w-full h-80 overflow-hidden border border-solid rounded-lg shadow-lg transition-transform duration-300 ease-in delay-0"
+            className="relative  h-80 overflow-hidden border border-solid rounded-lg shadow-lg transition-transform duration-300 ease-in delay-0"
             key={movie.id}
           >
             <Link href={`/movie/${movie.id}`}>

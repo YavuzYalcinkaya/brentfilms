@@ -8,8 +8,12 @@ const FeaturedMovie = ({ movie = {} }) => {
   const { poster_path, title, overview } = movie;
   return (
     <div className="flex flex-col gap-6 mt-14 mb-14">
-      <h1 className="text-4xl uppercase font-extrabold max-w-sm">{title}</h1>
-      <p className="text-xl max-w-md">{overview}</p>
+      <h1 className="text-center  text-2xl lg:text-4xl  uppercase font-extrabold max-w-sm">
+        {title}
+      </h1>
+      <p className="text-md lg:text-2xl lg:text-center opacity-90 max-w-md">
+        {overview}
+      </p>
       <div className="flex gap-3">
         <Link
           className="flex items-center justify-center bg-[#eee] text-[#222] rounded-full w-[300px] font-bold text-xl"
