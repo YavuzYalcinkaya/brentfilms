@@ -1,19 +1,10 @@
 const API_KEY = "1dd6c1c992b11ad58676277c4f2bab9e";
 
-// const fetchMovieApi = async (pathname, query = "") => {
-//   const res = await fetch(
-//     `https://api.themoviedb.org/3${pathname}?api_key=${API_KEY}&${query}`
-//   );
-//   return res.json();
-// };
-
 async function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 async function fetchData(path, { query = "" } = {}) {
-  await delay(1000);
-
   try {
     const res = await fetch(
       `https://api.themoviedb.org/3${path}?api_key=${API_KEY}&${query}`
