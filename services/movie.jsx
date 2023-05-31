@@ -61,3 +61,12 @@ export async function fetchMoviesByGenre(genreId) {
     throw new Error("Error happened while fetching top rated movies", error);
   }
 }
+
+export async function fetchTopRatedSeries() {
+  try {
+    const res = await fetchData("/tv/top_rated");
+    return res.results;
+  } catch (error) {
+    throw new Error("Error happened while fetching top rated movies", error);
+  }
+}

@@ -40,7 +40,7 @@ export default function Header() {
               </Link>
 
               <Link
-                href="/"
+                href="/series"
                 className="hover:opacity-50 border-b-2 border-white"
               >
                 Series
@@ -61,7 +61,7 @@ export default function Header() {
             Movies
           </Link>
 
-          <Link href="/" className="hover:opacity-50">
+          <Link href="/series" className="hover:opacity-50">
             Series
           </Link>
 
