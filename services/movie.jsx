@@ -1,8 +1,8 @@
 const API_KEY = "1dd6c1c992b11ad58676277c4f2bab9e";
 
-async function delay(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
+// async function delay(ms) {
+//   return new Promise((resolve) => setTimeout(resolve, ms));
+// }
 
 async function fetchData(path, { query = "" } = {}) {
   try {
@@ -24,9 +24,27 @@ export async function fetchGenres() {
   }
 }
 
+export async function fetchSerieGenres() {
+  try {
+    const res = await fetchData("/genre/tv/list");
+    return res.genres;
+  } catch (error) {
+    throw new Error("Error happened while fetching genres", error);
+  }
+}
+
 export async function fetchPopularMovies() {
   try {
     const res = await fetchData("/movie/popular");
+    return res.results;
+  } catch (error) {
+    throw new Error("Error happened while fetching popular movies", error);
+  }
+}
+
+export async function fetchPopularSeries() {
+  try {
+    const res = await fetchData("/tv/popular");
     return res.results;
   } catch (error) {
     throw new Error("Error happened while fetching popular movies", error);
@@ -42,9 +60,27 @@ export async function fetchTopRatedMovies() {
   }
 }
 
+export async function fetchTopRatedSeries() {
+  try {
+    const res = await fetchData("/tv/top_rated");
+    return res.results;
+  } catch (error) {
+    throw new Error("Error happened while fetching top rated movies", error);
+  }
+}
+
 export async function fetchSingleMovie(movieId) {
   try {
     const res = await fetchData(`/movie/${movieId}`);
+    return res;
+  } catch (error) {
+    throw new Error("Error happened while fetching top rated movies", error);
+  }
+}
+
+export async function fetchSingleSerie(seriesId) {
+  try {
+    const res = await fetchData(`/tv/${seriesId}`);
     return res;
   } catch (error) {
     throw new Error("Error happened while fetching top rated movies", error);
@@ -62,9 +98,11 @@ export async function fetchMoviesByGenre(genreId) {
   }
 }
 
-export async function fetchTopRatedSeries() {
+export async function fetchSeriesByGenre(genreId) {
   try {
-    const res = await fetchData("/tv/top_rated");
+    const res = await fetchData(`/discover/tv`, {
+      query: `with_genres=${genreId}`,
+    });
     return res.results;
   } catch (error) {
     throw new Error("Error happened while fetching top rated movies", error);
