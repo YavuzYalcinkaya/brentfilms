@@ -1,5 +1,6 @@
 import React from "react";
 import Skeleton from "@/components/skeleton";
+import "./style.css";
 
 const MovieSectionLoading = () => {
   return (

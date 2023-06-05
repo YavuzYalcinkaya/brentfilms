@@ -1,9 +1,9 @@
 import React from "react";
-
+import "./style.css";
 const Loading = () => {
   return (
-    <div>
-      <h2 className="text-red-800">LOADİNG...</h2>
+    <div className="loadingWrapper">
+      <div className="loading"></div>
     </div>
   );
 };
