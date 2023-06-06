@@ -50,7 +50,7 @@ export default function Header() {
                 href="/"
                 className="hover:opacity-50 border-b-2 border-white"
               >
-                Kids
+                Dashboard
               </Link>
             </ul>
           </div>
@@ -65,8 +65,8 @@ export default function Header() {
             Series
           </Link>
 
-          <Link href="/" className="hover:opacity-50">
-            Kids
+          <Link href="/dashboard" className="hover:opacity-50">
+            Dashboard
           </Link>
         </ul>
       </nav>
