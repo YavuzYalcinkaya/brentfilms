@@ -2,20 +2,19 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaPlus } from "react-icons/fa";
-import "./style.css";
 
 const FeaturedMovie = ({ movie = {} }) => {
   const { poster_path, title, overview } = movie;
   return (
-    <div className="flex gap-30 items-center justify-center">
-      <div className="flex flex-1 flex-col gap-6 mt-14 mb-14">
-        <h1 className="text-center text-4xl  uppercase font-extrabold max-w-sm">
+    <div className="flex flex-col lg:flex-row w-full shadow-xl items-center p-5 justify-around text-black mt-5">
+      <div className="flex flex-col">
+        <h1 className="text-center w-full md:text-start text-xl lg:text-4xl ml-5 uppercase font-extrabold">
           {title}
         </h1>
-        <p className="text-2xl text-center opacity-90 max-w-md">{overview}</p>
-        <div className="flex gap-3">
+        <p className="text-xl text-center  max-w-lg">{overview}</p>
+        <div className="flex justify-center items-center gap-3">
           <Link
-            className="flex items-center justify-center bg-[#eee] text-[#222] rounded-full w-[300px] font-bold text-xl"
+            className="flex items-center justify-center bg-[#eee] px-3 py-3 text-[#222] rounded-full font-bold text-xl"
             href={`/movie/${movie.id}`}
           >
             Play
@@ -25,9 +24,10 @@ const FeaturedMovie = ({ movie = {} }) => {
           </button>
         </div>
       </div>
-      <div className="moviePoster">
+      <div className="flex justify-center items-center lg:mr-10 rounded-lg">
         <Image
-          fill
+          width={250}
+          height={250}
           unoptimized
           src={`https://image.tmdb.org/t/p/original${poster_path}`}
           alt={title}

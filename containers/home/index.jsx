@@ -14,7 +14,7 @@ const HomeContainer = ({
       <FeaturedMovie
         movie={popularMovies[Math.floor(Math.random() * popularMovies.length)]}
       />
-      <Categories categories={categories.slice(1, 6)} />
+      {/* <Categories categories={categories.slice(1, 6)} />
       {!!selectedCategory.movies.length && (
         <MoviesSection
           title={categories.find(({ id }) => id === +selectedCategory.id)?.name}
@@ -25,7 +25,7 @@ const HomeContainer = ({
       <MoviesSection
         title="Your favorites"
         movies={topRatedMovies.slice(1, 7)}
-      />
+      /> */}
     </div>
   );
 };

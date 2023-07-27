@@ -16,7 +16,7 @@ const MoviesSection = ({ title, movies }) => {
           >
             <Link href={`/movie/${movie.id}`}>
               <Image
-                className="absolute  bg-transparent inset-0"
+                className=""
                 fill
                 unoptimized
                 alt={movie.title}

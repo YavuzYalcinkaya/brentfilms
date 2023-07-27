@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaPlus } from "react-icons/fa";
-import "./style.css";
 
 const FeaturedSerie = ({ serie = {} }) => {
   const { poster_path, title, overview } = serie;
