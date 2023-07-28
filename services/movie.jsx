@@ -1,8 +1,4 @@
-const API_KEY = "1dd6c1c992b11ad58676277c4f2bab9e";
-
-// async function delay(ms) {
-//   return new Promise((resolve) => setTimeout(resolve, ms));
-// }
+const API_KEY = "57e45f87ac23025222fa078358a66f00";
 
 async function fetchData(path, { query = "" } = {}) {
   try {
