@@ -25,10 +25,10 @@ const HomeContainer = ({
         title="Popular Films"
         movies={popularMovies.slice(0, 15)}
       />
-      {/* <MoviesSection
-        title="Your favorites"
-        movies={topRatedMovies.slice(1, 7)}
-      /> */}
+      <MoviesSection
+        title="Top Rated Films"
+        movies={topRatedMovies.slice(0, 15)}
+      />
     </div>
   );
 };

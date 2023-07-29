@@ -4,15 +4,7 @@ import Image from "next/image";
 import { FaPlus } from "react-icons/fa";
 
 const FeaturedMovie = ({ movie = {} }) => {
-  // const exampleApi = async () => {
-  //   const res = await fetch(
-  //     "https://api.themoviedb.org/3/movie/top_rated?api_key=1dd6c1c992b11ad58676277c4f2bab9e&page=1"
-  //   );
-  //   const data = await res.json();
-  //   console.log(data);
-  //   exampleApi();
-  // };
-  const { poster_path, title, overview } = movie;
+  const { poster_path, title, overview, video } = movie;
   return (
     <div className="flex flex-col lg:flex-row w-full shadow-xl items-center p-5  text-white bg-gray-900 mt-5">
       <div className="flex flex-col">
