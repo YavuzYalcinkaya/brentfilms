@@ -1,38 +1,57 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaPlus } from "react-icons/fa";
+import { MdOutlineLanguage } from "react-icons/md";
+import { AiFillStar } from "react-icons/ai";
+import { GoCalendar } from "react-icons/go";
 
 const FeaturedSerie = ({ serie = {} }) => {
-  const { poster_path, title, overview } = serie;
+  const {
+    id,
+    poster_path,
+    name,
+    overview,
+    original_language,
+    vote_average,
+    first_air_date,
+  } = serie;
   return (
-    <div className="flex flex-col gap-6 mt-14 mb-14">
-      <h1 className="text-center text-4xl  uppercase font-extrabold max-w-sm">
-        {title}
-      </h1>
-      <p className="text-2xl text-center opacity-90 max-w-md">{overview}</p>
-      <div className="flex gap-3">
-        <Link
-          className="flex items-center justify-center bg-[#eee] text-[#222] rounded-full w-[300px] font-bold text-xl"
-          href={`/serie/${serie.id}`}
-        >
-          Play
-        </Link>
-        <button className="flex items-center justify-center border-2 border-white border-solid rounded-full w-16 h-16">
-          <FaPlus />
-        </button>
+    <Link href={`/serie/${id}`}>
+      <div className="flex flex-col lg:flex-row justify-center w-full shadow-xl items-center p-5  text-white bg-gray-900 mt-5">
+        <div className="flex flex-col">
+          <h1 className="text-center w-full text-lg lg:text-4xl ml-5 uppercase font-extrabold">
+            {name}
+          </h1>
+          <p className="text-center mt-5 max-w-2xl">{overview}</p>
+
+          <div className="flex flex-row lg:flex-col justify-center items-start gap-4 text-white mt-8">
+            <div className="flex items-center justify-start">
+              <AiFillStar size={25} className="text-orange-500" />
+              <span className="ml-2">{vote_average} </span>
+            </div>
+            <div className="flex items-center justify-start gap-4">
+              <GoCalendar size={25} className="text-orange-500" />
+              <span>{first_air_date}</span>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <MdOutlineLanguage className="text-orange-500" size={25} />
+              <span className="uppercase">{original_language}</span>
+            </div>
+          </div>
+        </div>
+        <div className="flex justify-center items-center lg:ml-10 lg:mr-10 mt-5 rounded-lg">
+          <Image
+            className="rounded-xl"
+            width={300}
+            height={300}
+            unoptimized
+            src={`https://image.tmdb.org/t/p/original${poster_path}`}
+            alt={name}
+          />
+        </div>
       </div>
-      <div className="moviePoster">
-        <div className="moviePosterOverlay"></div>
-        <Image
-          fill
-          unoptimized
-          src={`https://image.tmdb.org/t/p/original${poster_path}`}
-          alt={title}
-          className="absolute bg-transparent inset-0"
-        />
-      </div>
-    </div>
+    </Link>
   );
 };
 

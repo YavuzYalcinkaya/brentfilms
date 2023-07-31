@@ -23,7 +23,7 @@ export default function Header() {
   }, [open]);
 
   return (
-    <div className="flex h-20 items-center z-10 bg-gray-900 justify-between w-full p-4 text-white">
+    <div className="flex h-20 items-center z-10 bg-gray-900 justify-between w-full p-4 text-white border-b border-solid border-white">
       <div className="flex items-center">
         <Link
           href="/"
@@ -33,10 +33,10 @@ export default function Header() {
         </Link>
       </div>
       <div className="hidden md:flex gap-5">
-        <Link href="/movie" className="font-semibold">
+        <Link href="/movie" className="font-semibold hover:opacity-75">
           Movies
         </Link>
-        <Link href="/series" className="font-semibold">
+        <Link href="/series" className="font-semibold hover:opacity-75">
           Series
         </Link>
       </div>

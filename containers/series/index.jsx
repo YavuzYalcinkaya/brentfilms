@@ -18,16 +18,16 @@ const SeriesContainer = ({
       {!!selectedCategory?.series.length && (
         <SeriesSection
           title={categories.find(({ id }) => id === +selectedCategory.id)?.name}
-          series={selectedCategory.series.slice(1, 7)}
+          series={selectedCategory.series.slice(1, 6)}
         />
       )}
       <SeriesSection
         title="Popular Series"
-        series={popularSeries.slice(1, 7)}
+        series={popularSeries.slice(0, 15)}
       />
       <SeriesSection
-        title="Your favorites"
-        series={topRatedSeries.slice(1, 7)}
+        title="Top Rated Series"
+        series={topRatedSeries.slice(0, 10)}
       />
     </div>
   );
