@@ -1,58 +1,55 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { MdOutlineLanguage } from "react-icons/md";
-import { AiFillStar } from "react-icons/ai";
-import { GoCalendar } from "react-icons/go";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
 
-const FeaturedMovie = ({ movie = {} }) => {
-  const {
-    id,
-    poster_path,
-    title,
-    overview,
-    original_language,
-    vote_average,
-    release_date,
-  } = movie;
-
+const FeaturedMovie = ({ popularMovies = [] }) => {
+  let slidesPerView = 3;
+  if (window.innerWidth < 768) {
+    slidesPerView = 1;
+  } else if (window.innerWidth < 1024) {
+    slidesPerView = 2;
+  }
   return (
-    <Link href={`/movie/${id}`}>
-      <div className="flex flex-col lg:flex-row justify-center w-full shadow-xl items-center p-5  text-white bg-gray-900 mt-5">
-        <div className="flex flex-col">
-          <h1 className="text-center w-full text-lg lg:text-4xl ml-5 uppercase font-extrabold">
-            {title}
-          </h1>
-          <p className="text-center mt-5  max-w-2xl">{overview}</p>
+    <div>
+      <div className=" w-full flex justify-center items-center lg:h-[400px]  text-white lg:mt-2">
+        <Swiper
+          className="mySwiper"
+          navigation={true}
+          modules={[Navigation]}
+          spaceBetween={10}
+          slidesPerView={slidesPerView}
+          loop={true}
+          autoplay={{ delay: 5000 }}
+        >
+          {popularMovies.map((movie) => (
+            <SwiperSlide key={movie.id}>
+              <div className="rounded-xl w-full relative flex justify-center">
+                <Link href={`/movie/${movie.id}`}>
+                  <Image
+                    className="opacity-75"
+                    width={500}
+                    height={200}
+                    unoptimized
+                    src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+                    alt={movie.title}
+                  />
+                  <div className="flex flex-col justify-end w-full h-full transition-opacity absolute bottom-0 p-3">
+                    <h1 className="font-extrabold">{movie.title}</h1>
 
-          <div className="flex flex-row lg:flex-col justify-center items-start gap-4 text-white mt-8">
-            <div className="flex items-center justify-start">
-              <AiFillStar size={25} className="text-orange-500" />
-              <span className="ml-2">{vote_average} </span>
-            </div>
-
-            <div className="flex items-center justify-start">
-              <GoCalendar className="text-orange-500" size={25} />
-              <span className="ml-2 text-sm">{release_date}</span>
-            </div>
-            <div className="flex items-center gap-4">
-              <MdOutlineLanguage className="text-orange-500" size={25} />
-              <span className="uppercase">{original_language}</span>
-            </div>
-          </div>
-        </div>
-        <div className="flex justify-center items-center lg:ml-10 lg:mr-10 mt-5 rounded-lg">
-          <Image
-            className="rounded-xl"
-            width={300}
-            height={300}
-            unoptimized
-            src={`https://image.tmdb.org/t/p/original${poster_path}`}
-            alt={title}
-          />
-        </div>
+                    <h4 className="ml-2 text-sm">{movie.release_date}</h4>
+                  </div>
+                </Link>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
-    </Link>
+    </div>
   );
 };
 

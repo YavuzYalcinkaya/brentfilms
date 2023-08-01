@@ -30,6 +30,7 @@ export async function fetchSerieGenres() {
 export async function fetchPopularMovies() {
   try {
     const res = await fetchData("/movie/popular");
+    console.log("pop movies", res.results);
     return res.results;
   } catch (error) {
     throw new Error("Error happened while fetching popular movies", error);
@@ -39,7 +40,7 @@ export async function fetchPopularMovies() {
 export async function fetchPopularSeries() {
   try {
     const res = await fetchData("/tv/popular");
-    console.log("pop series", res.results);
+
     return res.results;
   } catch (error) {
     throw new Error("Error happened while fetching popular movies", error);

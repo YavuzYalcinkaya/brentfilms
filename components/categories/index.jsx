@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Categories = ({ categories }) => {
   return (
-    <div className=" text-white flex flex-col lg:flex-row items-center mt-5 gap-4">
+    <div className=" text-white flex flex-col lg:flex-row items-center mx-6 mt-5 gap-4">
       {categories?.map((category, index) => (
         <Link
           key={index}
