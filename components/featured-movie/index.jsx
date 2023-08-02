@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,12 +8,26 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 
 const FeaturedMovie = ({ popularMovies = [] }) => {
-  let slidesPerView = 3;
-  if (window.innerWidth < 768) {
-    slidesPerView = 1;
-  } else if (window.innerWidth < 1024) {
-    slidesPerView = 2;
-  }
+  const [slidesPerView, setSlidesPerView] = useState(3);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setSlidesPerView(1);
+      } else if (window.innerWidth < 1024) {
+        setSlidesPerView(2);
+      } else {
+        setSlidesPerView(3);
+      }
+    };
+
+    // İlk render'dan sonra window değişikliklerini dinlemek için event listener ekleyin
+    window.addEventListener("resize", handleResize);
+
+    // Komponent kaldırıldığında event listener'ı kaldırın
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <div>
       <div className=" w-full flex justify-center items-center lg:h-[400px]  text-white lg:mt-2">
