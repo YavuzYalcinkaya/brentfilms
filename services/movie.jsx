@@ -1,7 +1,9 @@
+const API_KEY = "57e45f87ac23025222fa078358a66f00";
+
 async function fetchData(path, { query = "" } = {}) {
   try {
     const res = await fetch(
-      `https://api.themoviedb.org/3${path}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&${query}`
+      `https://api.themoviedb.org/3${path}?api_key=${API_KEY}&${query}`
     );
     return res.json();
   } catch (error) {
