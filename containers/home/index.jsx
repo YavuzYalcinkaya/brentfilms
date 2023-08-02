@@ -1,7 +1,7 @@
 import React from "react";
-import FeaturedMovie from "@/components/featured-movie";
+import MovieSlider from "@/components/movie/featured-movie";
 import Categories from "@/components/categories";
-import MoviesSection from "@/components/movies-section";
+import MoviesSection from "@/components/movie/movies-section";
 
 const HomeContainer = ({
   topRatedMovies = [],
@@ -11,7 +11,7 @@ const HomeContainer = ({
 }) => {
   return (
     <div>
-      <FeaturedMovie popularMovies={popularMovies} />
+      <MovieSlider popularMovies={popularMovies} />
       <Categories categories={categories.slice(0, 6)} />
       {!!selectedCategory.movies.length && (
         <MoviesSection

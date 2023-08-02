@@ -1,7 +1,7 @@
 import React from "react";
-import FeatureMovieLoading from "@/components/featured-movie";
+import FeatureMovieLoading from "@/components/movie/featured-movie";
 import CategoriesLoading from "@/components/categories";
-import MoviesSectionLoading from "@/components/movies-section";
+import MoviesSectionLoading from "@/components/movie/movies-section";
 
 const Loading = () => {
   return (

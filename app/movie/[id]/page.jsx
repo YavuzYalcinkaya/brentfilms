@@ -8,7 +8,7 @@ import Image from "next/image";
 
 const MoviePage = async ({ params, searchParams }) => {
   const movieDetail = await fetchSingleMovie(params.id);
-  console.log("Movie Detail:", movieDetail); // Dönen veriyi konsolda göster
+  // console.log("Movie Detail:", movieDetail);
 
   if (movieDetail.success === false) {
     notFound();

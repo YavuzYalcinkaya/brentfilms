@@ -1,6 +1,6 @@
-import FeaturedSerie from "@/components/featured-serie";
-import SeriesCategories from "@/components/series-categories";
-import SeriesSection from "@/components/series-section";
+import FeaturedSerie from "@/components/serie/featured-serie";
+import SeriesCategories from "@/components/serie/series-categories";
+import SeriesSection from "@/components/serie/series-section";
 import React from "react";
 
 const SeriesContainer = ({
@@ -11,14 +11,12 @@ const SeriesContainer = ({
 }) => {
   return (
     <div>
-      <FeaturedSerie
-        serie={popularSeries[Math.floor(Math.random() * popularSeries.length)]}
-      />
-      <SeriesCategories categories={categories.slice(1, 6)} />
+      <FeaturedSerie popularSeries={popularSeries} />
+      <SeriesCategories categories={categories.slice(0, 6)} />
       {!!selectedCategory?.series.length && (
         <SeriesSection
           title={categories.find(({ id }) => id === +selectedCategory.id)?.name}
-          series={selectedCategory.series.slice(1, 6)}
+          series={selectedCategory.series.slice(0, 6)}
         />
       )}
       <SeriesSection
@@ -27,7 +25,7 @@ const SeriesContainer = ({
       />
       <SeriesSection
         title="Top Rated Series"
-        series={topRatedSeries.slice(0, 10)}
+        series={topRatedSeries.slice(0, 15)}
       />
     </div>
   );
