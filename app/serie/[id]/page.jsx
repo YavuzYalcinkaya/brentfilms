@@ -36,7 +36,9 @@ const SeriePage = async ({ params, searchParams }) => {
           </h1>
           <div className="flex items-center justify-start">
             <AiFillStar size={25} className="text-orange-500" />
-            <span className="ml-2 text-white">{serieDetail.vote_average} </span>
+            <span className="ml-2 text-white">
+              {serieDetail.vote_average.toFixed(1)}
+            </span>
           </div>
           <div className="flex items-center justify-start">
             <GoCalendar className="text-orange-500" size={25} />

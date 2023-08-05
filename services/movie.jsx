@@ -71,6 +71,7 @@ export async function fetchTopRatedSeries() {
 export async function fetchSingleMovie(movieId) {
   try {
     const res = await fetchData(`/movie/${movieId}`);
+    console.log("single", res);
     return res;
   } catch (error) {
     throw new Error("Error happened while fetching top rated movies", error);
@@ -105,5 +106,14 @@ export async function fetchSeriesByGenre(genreId) {
     return res.results;
   } catch (error) {
     throw new Error("Error happened while fetching top rated movies", error);
+  }
+}
+
+export async function fetchMovieCast(movie_id) {
+  try {
+    const res = await fetchData(`/movie/${movie_id}/credits`);
+    return res.cast;
+  } catch (error) {
+    throw new Error("Error happened while fetching movie cast", error);
   }
 }
