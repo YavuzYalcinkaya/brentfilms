@@ -6,6 +6,11 @@ import Footer from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
+export const Metadata = {
+  title: "Brentfilms",
+  description: "The best  movie site in the world!",
+};
+
 export default function RootLayout({ children }) {
   return (
     <html className={inter.className} lang="en">

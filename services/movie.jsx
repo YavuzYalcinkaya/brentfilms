@@ -112,6 +112,7 @@ export async function fetchSeriesByGenre(genreId) {
 export async function fetchMovieCast(movie_id) {
   try {
     const res = await fetchData(`/movie/${movie_id}/credits`);
+    console.log("castDet", res.cast);
     return res.cast;
   } catch (error) {
     throw new Error("Error happened while fetching movie cast", error);

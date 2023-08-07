@@ -1,13 +1,19 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Loading from "@/components/loading";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 
 const FeaturedMovie = ({ popularMovies = [] }) => {
+  const [isImgLoading, setIsImgLoading] = useState(true);
+
+  useEffect(() => {
+    setIsImgLoading(false);
+  }, []);
   return (
     <div>
       <div className=" w-full flex justify-center items-center lg:h-[400px]  text-white lg:mt-2">
@@ -47,6 +53,7 @@ const FeaturedMovie = ({ popularMovies = [] }) => {
                     alt={movie.title}
                     priority
                   />
+                  {isImgLoading && <Loading />}
                   <div className="flex flex-col justify-end w-full h-full transition-opacity absolute bottom-0 p-3">
                     <h1 className="font-extrabold">{movie.title}</h1>
 
