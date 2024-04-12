@@ -8,7 +8,6 @@ import Image from "next/image";
 
 const MoviePage = async ({ params, searchParams }) => {
   const movieDetail = await fetchSingleMovie(params.id);
-  console.log("movieD:", movieDetail);
 
   if (movieDetail.success === false) {
     notFound();

@@ -29,7 +29,7 @@ const MoviesSection = ({ title, movies }) => {
                 </h3>
                 <div className="flex items-center text-[#9CA3AF]">
                   <AiFillStar className="text-orange-500" />
-                  <span className="ml-2">{movie.vote_average} </span>
+                  <span className="ml-2">{movie.vote_average.toFixed(1)} </span>
                   <span className="text-xs ml-1">|</span>
                   <span className="ml-2 text-sm">{movie.release_date}</span>
                 </div>
