@@ -20,7 +20,7 @@ const HomeContainer = ({
         />
       )}
       <MoviesSection
-        title="Popular Films"
+        title="Popular Filmsss"
         movies={popularMovies.slice(0, 15)}
       />
       <MoviesSection
